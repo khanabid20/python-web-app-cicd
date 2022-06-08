@@ -16,10 +16,9 @@ APP = Flask(__name__)
 
 # R1732: Consider using 'with' for resource-allocating operations (consider-using-with)
 data_file = open('data.json', 'r', encoding="utf-8")
-
 MASCOTS = json.load(data_file)
-
 data_file.close()
+
 
 @APP.route('/', methods=['GET'])
 def get_mascots():
