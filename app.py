@@ -15,9 +15,14 @@ APP = Flask(__name__)
 
 
 # R1732: Consider using 'with' for resource-allocating operations (consider-using-with)
-data_file = open('data.json', 'r', encoding="utf-8")
-MASCOTS = json.load(data_file)
-data_file.close()
+# data_file = open('data.json', 'r', encoding="utf-8")
+# MASCOTS = json.load(data_file)
+# data_file.close()
+
+# R1732: Consider using 'with' for resource-allocating operations (consider-using-with)
+with open('data.json', 'r', encoding="utf-8") as file:
+  MASCOTS = json.load(file)
+
 
 
 @APP.route('/', methods=['GET'])
