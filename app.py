@@ -21,7 +21,7 @@ APP = Flask(__name__)
 
 # R1732: Consider using 'with' for resource-allocating operations (consider-using-with)
 with open('data.json', 'r', encoding="utf-8") as file:
-  MASCOTS = json.load(file)
+    MASCOTS = json.load(file)
 
 
 
