@@ -24,7 +24,6 @@ with open('data.json', 'r', encoding="utf-8") as file:
     MASCOTS = json.load(file)
 
 
-
 @APP.route('/', methods=['GET'])
 def get_mascots():
     """
