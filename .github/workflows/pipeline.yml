@@ -34,7 +34,6 @@ jobs:
 #       uses: GoogleCloudPlatform/github-actions/setup-gcloud@main
     - name: Setup gcloud CLI with Docker auth
       uses: jacobsvante/setup-gcloud-with-docker-auth-action@v0.1.1
-
       with:
         version: '274.0.1'
         service_account_email: ${{ secrets.GCP_SERVICE_ACCT_EMAIL }}
