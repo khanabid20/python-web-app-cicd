@@ -16,6 +16,8 @@ jobs:
       run: |
         flake8 --ignore=E501,E231 *.py
         pylint --disable=C0301 --disable=C0326 *.py
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
     - name: Run unit tests
       run: |
         python -m unittest --verbose --failfast
