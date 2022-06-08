@@ -8,7 +8,20 @@ from flask import Flask, jsonify, abort, make_response
 APP = Flask(__name__)
 
 # Load the data
-MASCOTS = json.load(open('data.json', 'r'))
+# MASCOTS = json.load(open('data.json', 'r'))
+
+# W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+# MASCOTS = json.load(open('data.json', 'r', encoding="utf-8"))
+
+
+# R1732: Consider using 'with' for resource-allocating operations (consider-using-with)
+# data_file = open('data.json', 'r', encoding="utf-8")
+# MASCOTS = json.load(data_file)
+# data_file.close()
+
+# R1732: Consider using 'with' for resource-allocating operations (consider-using-with)
+with open('data.json', 'r', encoding="utf-8") as file:
+    MASCOTS = json.load(file)
 
 
 @APP.route('/', methods=['GET'])
