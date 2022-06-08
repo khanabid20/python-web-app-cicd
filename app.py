@@ -9,9 +9,15 @@ APP = Flask(__name__)
 
 # Load the data
 # MASCOTS = json.load(open('data.json', 'r'))
-# W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
-MASCOTS = json.load(open('data.json', 'r', encoding="utf-8"))
 
+# W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
+# MASCOTS = json.load(open('data.json', 'r', encoding="utf-8"))
+
+
+# R1732: Consider using 'with' for resource-allocating operations (consider-using-with)
+data_file = open('data.json', 'r', encoding="utf-8")
+MASCOTS = json.load(data_file)
+data_file.close()
 
 @APP.route('/', methods=['GET'])
 def get_mascots():
